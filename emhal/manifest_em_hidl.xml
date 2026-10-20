@@ -1,0 +1,14 @@
+<manifest version="1.0" type="device">
+    <!-- EngineerMode HAL (vendor.mediatek.hardware.engineermode) - required by
+         com.mediatek.engineermode "IMS test" toggle. em_hidl registers instance
+         "EmHidlServer" (see vendor/etc/init/em_hidl_user.rc). NOTE: when using
+         <fqname>, a <version> element is NOT allowed (libvintf rejects the mix). -->
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.engineermode</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IEmd/EmHidlServer</fqname>
+        <fqname>@1.1::IEmd/EmHidlServer</fqname>
+        <fqname>@1.2::IEmd/EmHidlServer</fqname>
+        <fqname>@1.3::IEmd/EmHidlServer</fqname>
+    </hal>
+</manifest>

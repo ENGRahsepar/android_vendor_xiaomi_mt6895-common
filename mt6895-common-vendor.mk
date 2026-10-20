@@ -531,6 +531,7 @@ PRODUCT_PACKAGES += \
     manifest_apuware_apusys.xml \
     manifest_apuware_hmp.xml \
     manifest_apuware_utils.xml \
+    manifest_em_hidl.xml \
     manifest_media_c2_V1_2_default.xml \
     manifest_wechat.xml \
     vendor.mediatek.hardware.neuropilot.agent@1.0-service.xml \
@@ -600,3 +601,26 @@ PRODUCT_BOOT_JARS += \
     camerax-vendor-extensions \
     mediatek-ims-base \
     mediatek-ims-common
+
+# ---------------------------------------------------------------------------
+# VTS: MTK Video Telephony Service - REQUIRED by ImsService (media.VTS).
+# Modules are defined in Android.bp but were never added to the install list,
+# so libmtk_vt_service.so sat dangling and ImsService blocked forever on
+# ServiceManagerCppClient "Service media.VTS didn't start" (VoLTE dead).
+# Wiring mirrored from xiaomi-mediatek-devs reference tree (lineage-22.2/23.0).
+# ---------------------------------------------------------------------------
+PRODUCT_PACKAGES += \
+    vtservice \
+    libvt_audiotrack_shim \
+    vtservice_aidl \
+    vendor.mediatek.hardware.videotelephony-impl \
+    vendor.mediatek.hardware.videotelephony-V1-ndk \
+    vendor.mediatek.hardware.videotelephony-V1-ndk_vendor \
+    vendor.mediatek.hardware.videotelephony@1.0
+
+PRODUCT_COPY_FILES += \
+    vendor/xiaomi/mt6895-common/proprietary/system_ext/etc/init/init.vtservice.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.vtservice.rc \
+    vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/init.vtservice_aidl.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.vtservice_aidl.rc
+
+PRODUCT_COPY_FILES += \
+    vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/init.em_hidl_start.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.em_hidl_start.rc

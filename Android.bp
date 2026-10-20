@@ -11422,3 +11422,4 @@ install_symlink {
     installed_location: "lib64/libpqpconfig.so",
     symlink_target: "/vendor/lib64/mt6895/libpqpconfig.so",
 }
+
