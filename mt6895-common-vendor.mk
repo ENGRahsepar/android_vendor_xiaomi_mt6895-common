@@ -624,3 +624,17 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/init.em_hidl_start.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.em_hidl_start.rc
+
+# Mali R54P1 userspace support
+PRODUCT_PACKAGES += \
+    libMEOW_mfrc_ext \
+    libmtk_mali_user \
+    arm.graphics-V5-ndk \
+    arm.mali.platform-V2-ndk \
+    libarm_mali_config_sysprops \
+    libarm_egl_properties_sysprop \
+    libarm_gralloc_properties_sysprop \
+    android.hardware.graphics.allocator-V2-ndk
+
+PRODUCT_COPY_FILES += \
+    vendor/xiaomi/mt6895-common/proprietary/vendor/etc/mali_platform.config:$(TARGET_COPY_OUT_VENDOR)/etc/mali_platform.config

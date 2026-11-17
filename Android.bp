@@ -157,6 +157,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/egl/libMEOW_data.so",
             ],
             shared_libs: [
+                "libc++",
                 "libc",
                 "libm",
                 "libdl",
@@ -274,26 +275,28 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/egl/mt6895/libGLES_mali.so",
             ],
             shared_libs: [
+                "android.hardware.graphics.allocator-V2-ndk",
+                "libbinder_ndk",
+                "liblog",
+                "libbase",
                 "libnativewindow",
                 "libutils",
-                "liblog",
-                "libdmabufheap",
-                "libbase",
-                "libion",
-                "libged",
-                "libgpu_aux",
-                "libgpud",
-                "libgralloc_extra",
-                "libladder",
-                "libgralloc_metadata",
-                "libgralloctypes_mtk",
-                "libcutils",
-                "libz",
-                "arm.graphics-V1-ndk_platform",
                 "android.hardware.graphics.mapper@4.0",
                 "libgralloctypes",
                 "libhidlbase",
+                "libion",
+                "libged",
+                "libgpud",
+                "libgralloc_extra",
+                "libgralloc_metadata",
+                "libgralloctypes_mtk",
+                "libcutils",
+                "libutilscallstack",
+                "libmtk_mali_user",
+                "libvndksupport",
                 "libhardware",
+                "libdmabufheap",
+                "libz",
                 "libc++",
                 "libc",
                 "libm",
@@ -2765,6 +2768,198 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libMEOW_mfrc_ext",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/egl/libMEOW_mfrc_ext.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libutils",
+                "libGLES_meow",
+                "libbinder_ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "egl",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmtk_mali_user",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libmtk_mali_user.so",
+            ],
+            shared_libs: [
+                "libgralloc_extra",
+                "libutils",
+                "libutilscallstack",
+                "libcutils",
+                "liblog",
+                "libged",
+                "android.hardware.graphics.common@1.2",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "arm.graphics-V5-ndk",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/mt6895/arm.graphics-V5-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "mt6895",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "arm.mali.platform-V2-ndk",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/mt6895/arm.mali.platform-V2-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "mt6895",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libarm_mali_config_sysprops",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/mt6895/libarm_mali_config_sysprops.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "mt6895",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libarm_egl_properties_sysprop",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/mt6895/libarm_egl_properties_sysprop.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "mt6895",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libarm_gralloc_properties_sysprop",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/mt6895/libarm_gralloc_properties_sysprop.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "mt6895",
+    prefer: true,
+    soc_specific: true,
+}
+
+
+cc_prebuilt_library_shared {
     name: "libgpu_aux",
     owner: "xiaomi",
     strip: {
@@ -2821,6 +3016,7 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "libcutils",
                 "libutils",
+                "libutilscallstack",
                 "liblog",
                 "libsync",
                 "libhardware",
@@ -2828,12 +3024,8 @@ cc_prebuilt_library_shared {
                 "libgralloc_extra",
                 "libhidlbase",
                 "libgralloctypes",
-                "android.hardware.graphics.common@1.1",
-                "android.hardware.graphics.common@1.2",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@2.1",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
+                "android.hardware.graphics.common-V7-ndk",
+                "android.hardware.graphics.allocator-V2-ndk",
                 "libc++",
                 "libc",
                 "libm",
